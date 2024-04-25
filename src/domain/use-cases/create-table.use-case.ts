@@ -1,12 +1,11 @@
 export interface CreateTableUseCase {
-    execute: ( options: CreateTableOptions) => string;
+    execute: ( options: Options) => string;
 }
 
 
-export interface CreateTableOptions{
+export interface Options{
     base: number;
     limit?: number;
-
 }
 
 export class CreateTable implements CreateTableUseCase {
@@ -17,7 +16,7 @@ export class CreateTable implements CreateTableUseCase {
         
     ){}
 
-    execute({ base, limit = 10 }: CreateTableOptions ){
+    execute({ base, limit = 10 }: Options ){
         let outputMessage = '';
         for( let i = 0; i <= limit; i++ ){
             outputMessage += `${ base } x ${ i } = ${ base * i } \n`

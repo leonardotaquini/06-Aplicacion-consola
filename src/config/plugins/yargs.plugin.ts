@@ -21,6 +21,18 @@ export const yarg = yargs( hideBin( process.argv ) )
         default: false,
         describe: 'Muestra la tabla de multiplicar en consola'
     })
+    .option('d', {
+        alias: 'destination',
+        type: 'string',
+        default: 'outputs',
+        describe: 'Ruta de destino del archivo de la tabla de multiplicar'
+    })
+    .option('n', {
+        alias: 'name',
+        type: 'string',
+        default: 'tabla',
+        describe: 'Nombre del archivo de la tabla de multiplicar'
+    })
     .check( ( argv, options ) => {
 
         if ( isNaN( argv.b ) ) {
